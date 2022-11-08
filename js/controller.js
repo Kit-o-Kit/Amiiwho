@@ -1,5 +1,2 @@
-sseszss
-fs
-fs
-d
-sd
+import * as model from './model.js'
+
