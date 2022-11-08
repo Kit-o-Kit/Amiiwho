@@ -12,7 +12,13 @@ body{
     color: #f4ecd6;
     border-bottom: 1px solid #ffffff;
 }
-.nav-ul a:hover, .nav-ul a:focus, .nav-ul a:active {
-    background-color: #000; 
-    color: #efefef; 
-    }
+.button{
+    color: #88b7b5;
+    padding: auto;
+    text-align: center;
+    display: inline-block;
+}
+.button:hover{
+    background-color: #310a31;
+    
+}
