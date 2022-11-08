@@ -1,5 +1,10 @@
-export class model {
-    getLyrics(artist, title) { 
-        return fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
+class model {
+    getAmiibo(criteria, searchTerm) {
+        const data = `https://www.amiiboapi.com/api/amiibo/?${criteria}=${searchTerm}`
+        const amiibo = fetch(data, 
+            )
+        return amiibo
     }
 }
+
+export default new model();
