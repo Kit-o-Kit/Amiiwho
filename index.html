@@ -12,29 +12,22 @@
 
 </head>
 <body>
-       <!-- <div class="search-box">
-            <input class="input-search" type = "text" id = "fishsearch" placeholder="Search for an Amiibo">
-            <button type = "submit" class="btn-search" ><i class="fas fa-search">go</i></button>-->
-        </div>
 
         <form id="form">
             <div class="search-box">
                 <input class="input-search" type = "text" id = "searchField" placeholder="search for an Amiibo">
-                <button type = "submit" id="searchbtn" class="btn-search" ><i class="fas fa-search">submit</i></button>
+                <button type = "submit" id="searchbtn" class="btn-search" ><i class="fas fa-search">search</i></button>
             </div>
+            <center>
+                <h1>
+                    Amiibo API
+                </h1> 
+            </center>
+            <input id = "bookmark" type="image" class = "bookmark" src="img/bookmark.png"/>
         </form>
-        <li id="searched">
-            
-        </li>
 
-        <center>
-            <h1>
-                Find Amiibos
-            </h1>
-        </center>
-
-    
-    <div id="log" class="text"></div>
-    <div id="fishlist" class = "text"></div>
+        <ul>
+        <li id="searched"></li>
+        </ul>
 </body>
 </html>
