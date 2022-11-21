@@ -4,4 +4,4 @@ class searchView {
     }
 }
 
-export default new searchView
+export default new searchView()
