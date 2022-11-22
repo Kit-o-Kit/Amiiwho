@@ -41,6 +41,18 @@ function getUsage(amiibo) {
     <div class="consoles" id="Switch">Switch</div>
     <div class="consoles" id="WiiU>WiiU</div>
     <div class="consoles" id="3DS">3DS</div>`;
+    getSwitch(amiibo.gamesSwitch)
+}
+function getSwitch(gamesSwitch) {
+    let gamees = ""
+    if (gamesSwitch.length = 0) {
+        gamees = "<div class='noGames'>Sadly this Amiibo has no use in any Switch Game</div>";
+    } else {
+        for(game of gamesSwitch) {
+
+            
+        }   
+    }
 }
 
 document.getElementById('form').addEventListener('submit', (e) => {
