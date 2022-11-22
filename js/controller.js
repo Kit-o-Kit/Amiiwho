@@ -7,7 +7,11 @@ function makedaAmiibo(amiibo) {
     <span class="highlighted">Game Series : </span>${amiibo.gameSeries}
     <span class="highlighted">Release Date EU : </span>${amiibo.release.eu}
     `;
-    document.getElementById("usage").innerHTML = ``
+    document.getElementById("usage").innerHTML = 
+    `<h2>Usage</h2>
+    <div class="consoles" id="Switch">Switch</div>
+    <div class="consoles" id="WiiU>WiiU</div>
+    <div class="consoles" id="3DS">3DS</div>`;
 }
 
 document.getElementById('form').addEventListener('submit', (e) => {
