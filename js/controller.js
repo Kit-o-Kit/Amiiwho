@@ -1,5 +1,5 @@
-let bookmarks = ['Fuck off','idk','shut up']
-
+let bookmarks = []
+let bookmarkNum = 0
 function createSearches(data) {
     let list = ""
                 let i = 0
@@ -28,8 +28,15 @@ function getInformation(amiibo) {
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
     <input id="like" type="image" src="img/heart.png" class="heart contrast"><span id = "like" class="marked">Add to Bookmark</span>
     `;
-    makeLikeFunction()
+    makeLikeFunction(amiibo)
 } 
+function makeLikeFunction(amiibo) {
+    document.getElementById("like").addEventListener("click", (e) => {
+        e.preventDefault();
+        bookmarks = bookmarks.concat([[amiibo.tail, amiibo.name, amiibo.amiiboSeries]])
+        console.log(bookmarks)
+    })
+}
 // function getUsage(amiibo) {
 //     document.getElementById("usage").innerHTML = 
 //     `<br><b><span class="usage">Usage</span></b></br>
@@ -62,17 +69,48 @@ function removeEverything() {
 }
 function sayhitoBookmarks() {
     let listOfBookmarks = ""
-    for (bookmark of bookmarks) {
-        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text">${bookmark}</div>`)
+    for (let amiibo of bookmarks) {
+        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text" id="bookmark-${amiibo[0]}">${amiibo[1]} | ${amiibo[2]}</div><div class="text" id="delete-${amiibo[0]}">X</div>`)
     }
     document.getElementById("bookmarked").innerHTML = listOfBookmarks
     document.getElementById("books").style.display = "block";
-    
+    giveInteractionBooks()
+    makeDeletion()
+}
+function giveInteractionBooks() {
+    for (let i=0; i <= bookmarks.length; i++) {
+        try {
+            document.getElementById(`bookmark-${bookmarks[i][0]}`).addEventListener("click", (e) => {
+                e.preventDefault();
+                console.log("are you there?")
+                document.getElementById("bookmarked").innerHTML = ""
+                const search = `https://www.amiiboapi.com/api/amiibo/?tail=${bookmarks[i][0]}`
+                const amiibo = fetch(search)
+                    .then((res) => res = res.json())
+                    .then((data) => {
+                        makedaAmiibo(data.amiibo[0])
+                    })
+            })
+        } catch (err) {}
+    }    
+}
+function makeDeletion() {
+    for (let i = 0; i < bookmarks.length; i++) {
+        bookmarkNum = i
+        console.log(bookmarkNum)
+        document.getElementById(`delete-${bookmarks[bookmarkNum][0]}`).addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(bookmarks)
+            console.log(bookmarkNum)
+            bookmarks = bookmarks.filter( bookmark => bookmark[0] == bookmarks[bookmarkNum][0])
+            console.log(bookmarks)
+        })
+    }
 }
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let query = document.getElementById("searchField").value
-    const data = `https://www.amiiboapi.com/api/amiibo/?character=${query}&showusage`
+    const data = `https://www.amiiboapi.com/api/amiibo/?character=${query}`
     const amiibo = fetch(data)
             .then((res) => res = res.json())
             .then((data) => {
