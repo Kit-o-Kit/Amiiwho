@@ -5,6 +5,7 @@ body {
     width: 100vw;
     height: 100vh;
     color: #310a31;
+    overflow-x: hidden;
   }
   *{
     box-sizing: border-box;
@@ -38,26 +39,26 @@ body {
     font-size: 18px;
     letter-spacing: 2px;
     font-weight: 100;
+    
   }
   .btn-search{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-style: none;
     font-size: 20px;
     font-weight: bold;
     outline: none;
     cursor: pointer;
-
+  
     position: absolute;
-    right: 0px;
     color: #310a31;
-    background-color:transparent;
-    pointer-events: painted;  
+    background-color: transparent;
+    pointer-events: painted; 
   }
   .btn-search:focus ~ .input-search{
     width: 300px;
     border-radius: 0px;
-    background-color: transparent;
+    background-color: #310a31;
     border-bottom:1px solid rgba(255,255,255,.5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   }
@@ -71,13 +72,25 @@ body {
 
   h1{
     text-align: center;
-    margin-top: -3.5%;
+    margin-top: -2.2%;
     margin-left: -8%;
     color: #847996;
   }
 
-  .text{
-    border-left: #847996;
-    margin-top: 6%;
-    margin-left: 5%;
+  ul{
+    list-style: none;
+    line-height: 50pt;
+    font-size: large;
+  }
+
+  .bookmark{
+    color: #310a31;
+    
+    width: 30px;
+
+    position: absolute;
+    top: 7.5%;
+    right: 60px;
+    margin-left: 80%;
+    margin-bottom: 50%;
   }
