@@ -17,10 +17,10 @@ function getInformation(amiibo) {
 }
 function getUsage(amiibo) {
     document.getElementById("usage").innerHTML = 
-    `<br><span class="text">Usage</span></br>
-    <br><span class="text" id="Switch">Switch</span></br>
-    <br><span class="text" id="WiiU>WiiU</div></br>
-    <br><span class="text" id="3DS">3DS</span></br>`;
+    `<br><b><span class="usage">Usage</span></b></br>
+    <br><span class="usage" id="Switch">Switch</span></br>
+    <br><span class="usage" id="WiiU>WiiU</div></br>
+    <br><span class="usage" id="3DS">3DS</span></br>`;
     getSwitch(amiibo.gamesSwitch)
 }
 function getSwitch(gamesSwitch) {
