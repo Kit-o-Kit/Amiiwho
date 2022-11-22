@@ -33,7 +33,9 @@
         <div id="books" class="books">
             <div  id="bookmarked"></div>
         </div>
-        <button id="editBtn" class="button">Edit</button>
+        <button id="newBtn" class="button">New Entry</button>
+        <button id="editBtn" class="button">Edit Entry</button>
+        <button id="delBtn" class="button">Delete Entry</button>
         <div id="editOverlay" class="editOverlay">
             <form id="editIt">
                 <div class="label-input-pair">
@@ -56,7 +58,32 @@
                     <label for="release">Release Date EU</label>
                     <input type="text" id="editRelease" name="release" required>
                 </div>
-                
+                <input type="submit" value="Edit Entry">
+            </form>
+        </div>
+        <div id="newOverlay" class="editOverlay">
+            <form id="newIt">
+                <div class="label-input-pair">
+                    <label for="amiibo">Amiibo</label>
+                    <input type="text" id="newAmiibo" name="amiibo" required>
+                </div>
+                <div class="label-input-pair">
+                    <label for="amiiboSeries">Amiibo Series</label>
+                    <input type="text" id="newAmiiboSeries" name="amiiboSeries" required>
+                </div>
+                <div class="label-input-pair">
+                    <label for="character">Character</label>
+                    <input type="text" id="newCharacter" name="character" required>
+                </div>
+                <div class="label-input-pair">
+                    <label for="gameSeries">Game Series</label>
+                    <input type="text" id="newGameSeries" name="gameSeries" required>
+                </div>
+                <div class="label-input-pair">
+                    <label for="release">Release Date EU</label>
+                    <input type="text" id="newRelease" name="release" required>
+                </div>
+                <input type="submit" value="Save New Entry">
             </form>
         </div>
         <div id="picture"></div>
