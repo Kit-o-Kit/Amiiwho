@@ -78,17 +78,6 @@ body {
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   }
 
-  .glass{
-    width: 30px;
-
-    right: 4000px;
-    transition:right 1s linear;
-
-    position: absolute;
-    top: 18%;
-    left: 17%;
-  }
-
   /*bookmark*/
 
   .bookmark{
@@ -107,8 +96,9 @@ body {
 
 .picture{
   position: absolute;
-  height: 80%;
-  width: auto;
+  height: auto;
+  max-height: 80%;
+  max-width: 40%;
   margin-top: 5%;
   margin-left: 5%;
 }
@@ -121,14 +111,36 @@ body {
   line-height: 45pt;
 
   font-size: 25px;
+
+  overscroll-behavior-block:unset;
 }
 
 .usage{
   position: relative;
-  padding-left: 25%;
-  padding-top: 15%;
+  text-align: center;
+  margin-top: 2%;
+  margin-right: 10%;
 
   line-height: 30pt;
 
   font-size: 25px;
 }
+
+/*.usage-title{
+  position: relative;
+  font-size: larger;
+
+  margin-right: 12%;
+}
+
+.background-box{
+  position:relative;
+
+  background-color: #a7cab7;
+
+  width: 800px;
+
+  background-position-x: left;
+
+  //div in controller js wenn doch machen
+}*/
