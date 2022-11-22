@@ -1,11 +1,10 @@
 function makedaAmiibo(amiibo) {
     document.getElementById('picture').innerHTML = `<img src="${amiibo.image}"></img>`
     document.getElementById('information').innerHTML = 
-    `<span class="highlighted">Amiibo : </span>${amiibo.name}
-    <span class="highlighted">Amiibo Series : </span>${amiibo.amiiboSeries}
-    <span class="highlighted">Character : </span>${amiibo.character}
-    <span class="highlighted">Game Series : </span>${amiibo.gameSeries}
-    <span class="highlighted">Release Date EU : </span>${amiibo.release.eu}
+    `<br><span class="highlighted">Amiibo : </span>${amiibo.name}</br>
+    <br><span class="highlighted">Amiibo Series : </span>${amiibo.amiiboSeries}</br>
+    <br><span class="highlighted">Character : </span>${amiibo.character}</br>
+    <br><span class="highlighted">Game Series : </span>${amiibo.gameSeries}</br>
     `;
     document.getElementById("usage").innerHTML = 
     `<h2>Usage</h2>
