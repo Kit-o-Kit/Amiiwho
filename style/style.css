@@ -94,6 +94,12 @@ body {
 
   /*search results*/
 
+.listedresults{
+
+  
+
+  }
+
 .picture{
   position: absolute;
   height: auto;
@@ -124,6 +130,11 @@ body {
   line-height: 30pt;
 
   font-size: 25px;
+}
+
+.actual-goodlooking-header{
+  background-color: rgba(167, 202, 177, 0.5);
+  
 }
 
 /*.usage-title{
