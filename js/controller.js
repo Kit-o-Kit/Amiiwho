@@ -5,13 +5,15 @@ function makedaAmiibo(amiibo) {
     <span class="highlighted">Amiibo Series : </span>${amiibo.amiiboSeries}
     <span class="highlighted">Character : </span>${amiibo.character}
     <span class="highlighted">Game Series : </span>${amiibo.gameSeries}
-    `
+    <span class="highlighted">Release Date EU : </span>${amiibo.release.eu}
+    `;
+    document.getElementById("usage").innerHTML = ``
 }
 
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let query = document.getElementById("searchField").value
-    const data = `https://www.amiiboapi.com/api/amiibo/?character=${query}`
+    const data = `https://www.amiiboapi.com/api/amiibo/?character=${query}&showusage`
     const amiibo = fetch(data)
             .then((res) => res = res.json())
             .then((data) => {
