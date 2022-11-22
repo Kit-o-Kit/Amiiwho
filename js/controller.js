@@ -1,5 +1,4 @@
 let bookmarks = []
-let bookmarkNum = 0
 function createSearches(data) {
     let list = ""
                 let i = 0
@@ -78,31 +77,28 @@ function sayhitoBookmarks() {
     makeDeletion()
 }
 function giveInteractionBooks() {
-    for (let i=0; i <= bookmarks.length; i++) {
-        try {
-            document.getElementById(`bookmark-${bookmarks[i][0]}`).addEventListener("click", (e) => {
-                e.preventDefault();
-                console.log("are you there?")
-                document.getElementById("bookmarked").innerHTML = ""
-                const search = `https://www.amiiboapi.com/api/amiibo/?tail=${bookmarks[i][0]}`
-                const amiibo = fetch(search)
-                    .then((res) => res = res.json())
-                    .then((data) => {
-                        makedaAmiibo(data.amiibo[0])
-                    })
-            })
-        } catch (err) {}
+    for (let i=0; i < bookmarks.length; i++) {
+        document.getElementById(`bookmark-${bookmarks[i][0]}`).addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log("are you there?")
+            document.getElementById("bookmarked").innerHTML = ""
+            const search = `https://www.amiiboapi.com/api/amiibo/?tail=${bookmarks[i][0]}`
+            const amiibo = fetch(search)
+                .then((res) => res = res.json())
+                .then((data) => {
+                    makedaAmiibo(data.amiibo[0])
+                })
+        })
     }    
 }
 function makeDeletion() {
     for (let i = 0; i < bookmarks.length; i++) {
-        bookmarkNum = i
-        console.log(bookmarkNum)
-        document.getElementById(`delete-${bookmarks[bookmarkNum][0]}`).addEventListener("click", (e) => {
+        document.getElementById(`delete-${bookmarks[i][0]}`).addEventListener("click", (e) => {
             e.preventDefault();
-            console.log(bookmarks)
-            console.log(bookmarkNum)
-            bookmarks = bookmarks.filter( bookmark => bookmark[0] == bookmarks[bookmarkNum][0])
+            let currentBookmark = e.target.parentElement.id.slice(7)
+            console.log(currentBookmark)
+            console.log(bookmarks[0][0])
+            bookmarks = bookmarks.filter( bookmark => bookmark[0] !== currentBookmark)
             console.log(bookmarks)
         })
     }
