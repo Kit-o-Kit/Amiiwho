@@ -1,3 +1,15 @@
+let bookmarks = []
+
+function createSearches(data) {
+    let list = ""
+                let i = 0
+                for(d of data.amiibo){
+                    i++
+                    let giveIt = `<li id="suggest ${i}" >${d.name}, ${d.character}, ${d.amiiboSeries}</li>`
+                    list = list.concat('\n', giveIt)
+                }
+                document.getElementById("searched").innerHTML = list;
+}
 function makedaAmiibo(amiibo) {
     console.log(amiibo);
     getPicture(amiibo);
@@ -15,7 +27,7 @@ function getInformation(amiibo) {
     <br><span class="text">Game Series : </span>${amiibo.gameSeries}</br>
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
     `;
-}
+} 
 // function getUsage(amiibo) {
 //     document.getElementById("usage").innerHTML = 
 //     `<br><b><span class="usage">Usage</span></b></br>
@@ -41,6 +53,14 @@ function getInformation(amiibo) {
 //         document.getElementById("Switch").innerHTML = gamees
 //     }
 // }
+function removeEverything() {
+    document.getElementById("searched").innerHTML = ""
+    document.getElementById("information").innerHTML = ""
+    document.getElementById("picture").innerHTML = ""
+}
+function sayhitoBookmarks() {
+    
+}
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let query = document.getElementById("searchField").value
@@ -48,14 +68,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     const amiibo = fetch(data)
             .then((res) => res = res.json())
             .then((data) => {
-                let list = ""
-                let i = 0
-                for(d of data.amiibo){
-                    i++
-                    let giveIt = `<li id="suggest ${i}" >${d.name}, ${d.character}, ${d.amiiboSeries}</li>`
-                    list = list.concat('\n', giveIt)
-                }
-                document.getElementById("searched").innerHTML = list;
+                createSearches(data)
                 for(let j = 1; j <= data.amiibo.length; j++) {
                     document.getElementById(`suggest ${j}`).addEventListener("click", (f) => {
                     f.preventDefault()
@@ -64,5 +77,11 @@ document.getElementById('form').addEventListener('submit', (e) => {
                     
                 })}
             })
-    // searchView.getQuery();
+})
+
+document.getElementById("bookmark").addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log("hi")
+    removeEverything();
+    sayhitoBookmarks();
 })
