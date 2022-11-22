@@ -1,5 +1,6 @@
 let bookmarks = []
 function createSearches(data) {
+    removeEverything()
     let list = ""
                 let i = 0
                 for(d of data.amiibo){
@@ -65,6 +66,7 @@ function removeEverything() {
     document.getElementById("searched").innerHTML = ""
     document.getElementById("information").innerHTML = ""
     document.getElementById("picture").innerHTML = ""
+    document.getElementById("bookmarked").innerHTML=""
 }
 function sayhitoBookmarks() {
     let listOfBookmarks = ""
