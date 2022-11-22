@@ -97,6 +97,12 @@ body {
     outline-color: invert;
   }
 
+  .delete{
+    position: relative;
+    width: 30px;
+    left: 23.5%;
+  }
+
   /*search results*/
 
 .listedresults{
@@ -134,6 +140,8 @@ body {
 
   font-size: 25px;
 }
+
+/*heart*/
 
 .heart{
   position: absolute;
