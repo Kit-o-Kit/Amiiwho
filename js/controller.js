@@ -10,12 +10,18 @@ document.getElementById('form').addEventListener('submit', (e) => {
             .then((res) => res = res.json())
             .then((data) => {
                 let list = ""
+                let i = 0
                 for(d of data.amiibo){
-                    let giveIt = `<ul>${d.name}, ${d.character}, ${d.amiiboSeries}</ul>`
+                    i++
+                    let giveIt = `<li id="suggest ${i}" >${d.name}, ${d.character}, ${d.amiiboSeries}</li>`
                     list = list.concat('\n', giveIt)
-                    document.getElementById("searched").innerHTML = list
+                    console.log(list)
                 }
-                
+                document.getElementById("searched").innerHTML = list;
+                for(let j = 1; j <= data.amiibo.length; j++) {
+                    document.getElementById(`suggest ${j}`).addEventListener("click", (f) => {
+                    
+                })}
             })
     // searchView.getQuery();
 })
