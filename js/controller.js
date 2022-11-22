@@ -1,5 +1,12 @@
 function makedaAmiibo(amiibo) {
+    getPicture(amiibo);
+    getInformation(amiibo);
+    getUsage(amiibo);
+}
+function getPicture(amiibo) {
     document.getElementById('picture').innerHTML = `<img src="${amiibo.image}" class="picture"></img>`
+}
+function getInformation(amiibo) {
     document.getElementById('information').innerHTML = 
     `<br><span class="text">Amiibo : </span>${amiibo.name}</br>
     <br><span class="text">Amiibo Series : </span>${amiibo.amiiboSeries}</br>
@@ -7,11 +14,26 @@ function makedaAmiibo(amiibo) {
     <br><span class="text">Game Series : </span>${amiibo.gameSeries}</br>
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
     `;
+}
+function getUsage(amiibo) {
     document.getElementById("usage").innerHTML = 
     `<br><b><span class="usage">Usage</span></b></br>
     <br><span class="usage" id="Switch">Switch</span></br>
     <br><span class="usage" id="WiiU>WiiU</div></br>
     <br><span class="usage" id="3DS">3DS</span></br>`;
+    getSwitch(amiibo.gamesSwitch)
+}
+
+function getSwitch(gamesSwitch) {
+    let gamees = ""
+    if (gamesSwitch.length = 0) {
+        gamees = "<div class='noGames'>Sadly this Amiibo has no use in any Switch Game</div>";
+    } else {
+        for(game of gamesSwitch) {
+
+            
+        }   
+    }
 }
 
 document.getElementById('form').addEventListener('submit', (e) => {
