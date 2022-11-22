@@ -1,7 +1,8 @@
 function makedaAmiibo(amiibo) {
+    console.log(amiibo);
     getPicture(amiibo);
     getInformation(amiibo);
-    getUsage(amiibo);
+    // getUsage(amiibo);
 }
 function getPicture(amiibo) {
     document.getElementById('picture').innerHTML = `<img src="${amiibo.image}" class="picture"></img>`
@@ -15,26 +16,31 @@ function getInformation(amiibo) {
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
     `;
 }
-function getUsage(amiibo) {
-    document.getElementById("usage").innerHTML = 
-    `<br><b><span class="usage">Usage</span></b></br>
-    <br><span class="usage" id="Switch">Switch</span></br>
-    <br><span class="usage" id="WiiU>WiiU</div></br>
-    <br><span class="usage" id="3DS">3DS</span></br>`;
-    getSwitch(amiibo.gamesSwitch)
-}
-function getSwitch(gamesSwitch) {
-    let gamees = ""
-    if (gamesSwitch.length = 0) {
-        gamees = "<div class='noGames'>Sadly this Amiibo has no use in any Switch Game</div>";
-    } else {
-        for(game of gamesSwitch) {
-            gamees.concat('', `<div class=children ></div>`)
-            
-        }   
-    }
-}
-
+// function getUsage(amiibo) {
+//     document.getElementById("usage").innerHTML = 
+//     `<br><b><span class="usage">Usage</span></b></br>
+//     <br><span class="usage">Switch<div id="Switch"></div></span></br>
+//     <br><span class="usage" id="WiiU">WiiU<div id="Switch"></div></div></br>
+//     <br><span class="usage" id="3DS">3DS<div id="Switch"></div></span></br>`;
+//     getSwitch(amiibo.gamesSwitch)
+// }
+// function getSwitch(gamesSwitch) {
+//     if (gamesSwitch.length = 0) {
+//         document.getElementById("Switch").innerHTML = "<div class='noGames'>Sadly this Amiibo has no use in any Switch Game</div>";
+//     } else {
+//         let gamees = ""
+//         for(game of gamesSwitch) {
+//             console.log("hello")
+//             let usages = ""
+//             for(uses of game.amiiboUsage) {
+//                 usages.concat('', `<span class="text">${uses.Usage}</span>`)
+//             }
+//             gamees.concat('', 
+//             `<div class='child' id='games'>${game.gameName}<div class="usages">${usages}</div></div>`)   
+//         }
+//         document.getElementById("Switch").innerHTML = gamees
+//     }
+// }
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let query = document.getElementById("searchField").value
