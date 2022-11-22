@@ -26,7 +26,7 @@ function getInformation(amiibo) {
     <br><span class="text">Character : </span>${amiibo.character}</br>
     <br><span class="text">Game Series : </span>${amiibo.gameSeries}</br>
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
-    <input id="like" type="image" src="img/heart.png" class="heart"><span class="marked">Add to Bookmark</span>
+    <input id="like" type="image" src="img/heart.png" class="heart"><span id = "like" class="marked">Add to Bookmark</span>
     `;
 } 
 // function getUsage(amiibo) {

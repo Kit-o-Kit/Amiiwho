@@ -88,6 +88,8 @@ body {
 
   .books{
     display: none;
+    display: contents;
+
   }
 
   .bookmarked{
