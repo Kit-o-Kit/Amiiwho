@@ -23,14 +23,13 @@ function getUsage(amiibo) {
     <br><span class="text" id="3DS">3DS</span></br>`;
     getSwitch(amiibo.gamesSwitch)
 }
-
 function getSwitch(gamesSwitch) {
     let gamees = ""
     if (gamesSwitch.length = 0) {
         gamees = "<div class='noGames'>Sadly this Amiibo has no use in any Switch Game</div>";
     } else {
         for(game of gamesSwitch) {
-
+            gamees.concat('', `<div class=children ></div>`)
             
         }   
     }
