@@ -59,7 +59,11 @@ function removeEverything() {
     document.getElementById("picture").innerHTML = ""
 }
 function sayhitoBookmarks() {
-    
+    let listOfBookmarks = ""
+    for (bookmark in bookmarks) {
+        listOfBookmarks.concat('\n',`<div class="text">${bookmark}</div>`)
+    }
+    document.getElementById("bookmarked").innerHTML = listOfBookmarks
 }
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
