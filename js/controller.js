@@ -96,10 +96,8 @@ function makeDeletion() {
         document.getElementById(`delete-${bookmarks[i][0]}`).addEventListener("click", (e) => {
             e.preventDefault();
             let currentBookmark = e.target.parentElement.id.slice(7)
-            console.log(currentBookmark)
-            console.log(bookmarks[0][0])
             bookmarks = bookmarks.filter( bookmark => bookmark[0] !== currentBookmark)
-            console.log(bookmarks)
+            sayhitoBookmarks()
         })
     }
 }
@@ -120,7 +118,6 @@ document.getElementById('form').addEventListener('submit', (e) => {
                 })}
             })
 })
-
 document.getElementById("bookmark").addEventListener("click", (e) => {
     e.preventDefault()
     console.log("hi")
