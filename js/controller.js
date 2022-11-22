@@ -1,4 +1,4 @@
-let bookmarks = []
+let bookmarks = ['Fuck off','idk','shut up']
 
 function createSearches(data) {
     let list = ""
@@ -28,6 +28,7 @@ function getInformation(amiibo) {
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
     <input id="like" type="image" src="img/heart.png" class="heart"><span id = "like" class="marked">Add to Bookmark</span>
     `;
+    makeLikeFunction()
 } 
 // function getUsage(amiibo) {
 //     document.getElementById("usage").innerHTML = 
@@ -60,7 +61,13 @@ function removeEverything() {
     document.getElementById("picture").innerHTML = ""
 }
 function sayhitoBookmarks() {
-    
+    let listOfBookmarks = ""
+    for (bookmark of bookmarks) {
+        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text">${bookmark}</div>`)
+    }
+    document.getElementById("bookmarked").innerHTML = listOfBookmarks
+    document.getElementById("books").style.display = "block";
+    document.get E
 }
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
