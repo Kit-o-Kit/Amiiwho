@@ -70,7 +70,7 @@ function removeEverything() {
 function sayhitoBookmarks() {
     let listOfBookmarks = ""
     for (let amiibo of bookmarks) {
-        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text" id="bookmark-${amiibo[0]}">${amiibo[1]} | ${amiibo[2]}</div><div class="text" id="delete-${amiibo[0]}">X</div>`)
+        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text" id="bookmark-${amiibo[0]}">${amiibo[1]} | ${amiibo[2]}</div><div class="text" id="delete-${amiibo[0]}"><input id = "makeDeletion" type="image" class = "delete" src="img/trash-bin.png"/></div>`)
     }
     document.getElementById("bookmarked").innerHTML = listOfBookmarks
     document.getElementById("books").style.display = "block";
