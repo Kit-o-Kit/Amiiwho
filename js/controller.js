@@ -26,7 +26,7 @@ function getInformation(amiibo) {
     <br><span class="text">Character : </span>${amiibo.character}</br>
     <br><span class="text">Game Series : </span>${amiibo.gameSeries}</br>
     <br><span class="text">Release Date EU : </span>${amiibo.release.eu}</br>
-    <input id="like" type="image" src="img/heart.png" class="heart"><span class="marked">Add to Bookmark</span>
+    <input id="like" type="image" src="img/heart.png" class="heart contrast"><span id = "like" class="marked">Add to Bookmark</span>
     `;
     makeLikeFunction(amiibo)
 } 
@@ -70,7 +70,7 @@ function removeEverything() {
 function sayhitoBookmarks() {
     let listOfBookmarks = ""
     for (let amiibo of bookmarks) {
-        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text" id="bookmark-${amiibo[0]}">${amiibo[1]} | ${amiibo[2]}</div><div class="text" id="delete-${amiibo[0]}">X</div>`)
+        listOfBookmarks = listOfBookmarks.concat('\n',`<div class="text" id="bookmark-${amiibo[0]}">${amiibo[1]} | ${amiibo[2]}</div><div class="text" id="delete-${amiibo[0]}"><input id = "makeDeletion" type="image" class = "delete" src="img/trash-bin.png"/></div>`)
     }
     document.getElementById("bookmarked").innerHTML = listOfBookmarks
     document.getElementById("books").style.display = "block";

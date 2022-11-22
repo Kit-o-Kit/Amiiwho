@@ -88,10 +88,13 @@ body {
 
   .books{
     display: none;
+    
+
   }
 
   .bookmarked{
     display: none;
+    outline-color: invert;
   }
 
   /*search results*/
@@ -137,13 +140,29 @@ body {
   width: 30px;
   top: 98%;
   left: 2%;
+
+
 }
+
+.heart:focus{
+  filter: blur(2px);
+  }
+
+  .heart:hover{
+    filter:blur(2px);
+  }
+
+  .heart:visited{
+    filter: blur(2px);
+  }
 
 .marked{
   position: absolute;
   top: 95.5%;
   left: 5.5%;
 }
+
+
 
 /*.usage-title{
   position: relative;
