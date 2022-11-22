@@ -1,6 +1,12 @@
-// import searchView from './views/searchView.js';
-// import model from './model.js';
-console.log("hi");
+function makedaAmiibo(amiibo) {
+    document.getElementById('picture').innerHTML = `<img src="${amiibo.image}"></img>`
+    document.getElementById('information').innerHTML = 
+    `<span class="highlighted">Amiibo : </span>${amiibo.name}
+    <span class="highlighted">Amiibo Series : </span>${amiibo.amiiboSeries}
+    <span class="highlighted">Character : </span>${amiibo.character}
+    <span class="highlighted">Game Series : </span>${amiibo.gameSeries}
+    `
+}
 
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -15,11 +21,13 @@ document.getElementById('form').addEventListener('submit', (e) => {
                     i++
                     let giveIt = `<li id="suggest ${i}" >${d.name}, ${d.character}, ${d.amiiboSeries}</li>`
                     list = list.concat('\n', giveIt)
-                    console.log(list)
                 }
                 document.getElementById("searched").innerHTML = list;
                 for(let j = 1; j <= data.amiibo.length; j++) {
                     document.getElementById(`suggest ${j}`).addEventListener("click", (f) => {
+                    f.preventDefault()
+                    document.getElementById('searched').innerHTML = "";
+                    makedaAmiibo(data.amiibo[j-1])
                     
                 })}
             })
