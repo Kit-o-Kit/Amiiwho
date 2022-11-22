@@ -1,5 +1,32 @@
-function makedaAmiibo(amiibo) {
+function createSearches(data) {
+    let list = ""
+    let i = 0
+    for(d of data.amiibo){
+        i++
+        let giveIt = `<li id="suggest ${i}" >${d.name}, ${d.character}, ${d.amiiboSeries}</li>`
+        list = list.concat('\n', giveIt)
+    }
+    document.getElementById("searched").innerHTML = list;
+    addInteraction(data)
+}
+function addInteraction(data) {
+    for(let j = 1; j <= data.amiibo.length; j++) {
+        document.getElementById(`suggest ${j}`).addEventListener("click", (f) => {
+        f.preventDefault()
+        document.getElementById('searched').innerHTML = "";
+        createAmiibo(data.amiibo[j-1])       
+    })}
+}
+
+function createAmiibo(amiibo) {
+    getPicture(amiibo);
+    getInformation(amiibo);
+    getUsage(amiibo);
+}
+function getPicture(amiibo) {
     document.getElementById('picture').innerHTML = `<img src="${amiibo.image}"></img>`
+}
+function getInformation(amiibo) {
     document.getElementById('information').innerHTML = 
     `<br><span class="highlighted">Amiibo : </span>${amiibo.name}</br>
     <br><span class="highlighted">Amiibo Series : </span>${amiibo.amiiboSeries}</br>
@@ -7,6 +34,8 @@ function makedaAmiibo(amiibo) {
     <br><span class="highlighted">Game Series : </span>${amiibo.gameSeries}</br>
     <br><span class="highlighted">Release Date EU : </span>${amiibo.release.eu}</br>
     `;
+}
+function getUsage(amiibo) {
     document.getElementById("usage").innerHTML = 
     `<h2>Usage</h2>
     <div class="consoles" id="Switch">Switch</div>
@@ -21,21 +50,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     const amiibo = fetch(data)
             .then((res) => res = res.json())
             .then((data) => {
-                let list = ""
-                let i = 0
-                for(d of data.amiibo){
-                    i++
-                    let giveIt = `<li id="suggest ${i}" >${d.name}, ${d.character}, ${d.amiiboSeries}</li>`
-                    list = list.concat('\n', giveIt)
-                }
-                document.getElementById("searched").innerHTML = list;
-                for(let j = 1; j <= data.amiibo.length; j++) {
-                    document.getElementById(`suggest ${j}`).addEventListener("click", (f) => {
-                    f.preventDefault()
-                    document.getElementById('searched').innerHTML = "";
-                    makedaAmiibo(data.amiibo[j-1])
-                    
-                })}
+                createSearches(data)
             })
     // searchView.getQuery();
 })
