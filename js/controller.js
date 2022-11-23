@@ -132,6 +132,11 @@ function checkDeleted(data) {
     console.log(data)
     return data
 }
+function addNew(data) {
+    data = data.amiibo.concat(newAmiibos)
+    console.log(data)
+    return data;
+}
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let query = document.getElementById("searchField").value
@@ -165,4 +170,19 @@ document.getElementById("delBtn").addEventListener("click", (e) => {
 })
 document.getElementById("newIt").addEventListener("submit", (e) => {
     e.preventDefault();
+    let newAmiibo = {}
+    newAmiibo.name = document.getElementById("newAmiibo").value
+    newAmiibo.amiiboSeries = document.getElementById("newAmiiboSeries").value
+    newAmiibo.character = document.getElementById("newCharacter").value
+    newAmiibo.gameSeries = document.getElementById("newGameSeries").value
+    newAmiibo.release = {}
+    newAmiibo.release.eu = document.getElementById("newRelease").value
+    newAmiibo.image = document.getElementById("newImg").value
+    if (newAmiibos == []) {
+        newAmiibo.tail = 1000000001
+    } else {
+        newAmiibo.tail = (1000000001+newAmiibos.length)
+    }
+    newAmiibos.push(newAmiibo)
+    console.log(newAmiibo)
 })
