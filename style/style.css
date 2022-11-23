@@ -215,6 +215,10 @@ body {
   left: 86%;
 }
 
-.input-pair{
-  
+.editOverlay{
+  padding: 10px 20px;
+}
+
+.label-input-pair{
+  font-size: 30px;
 }
