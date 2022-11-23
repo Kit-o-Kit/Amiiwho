@@ -1,4 +1,8 @@
 let bookmarks = []
+let currentAmiibo = {}
+let deletedAmiibos = []
+let editedAmiibos = []
+let newAmiibos = []
 function createSearches(data) {
     removeEverything()
     let list = ""
@@ -11,6 +15,8 @@ function createSearches(data) {
                 document.getElementById("searched").innerHTML = list;
 }
 function makedaAmiibo(amiibo) {
+    currentAmiibo = amiibo
+    showEditandDelete()
     console.log(amiibo);
     getPicture(amiibo);
     getInformation(amiibo);
@@ -68,6 +74,10 @@ function removeEverything() {
     document.getElementById("picture").innerHTML = ""
     document.getElementById("bookmarked").innerHTML=""
 }
+function showEditandDelete() {
+    document.getElementById("editBtn").style.display = "block"
+    document.getElementById("delBtn").style.display = "block"
+}
 function sayhitoBookmarks() {
     let listOfBookmarks = ""
     for (let amiibo of bookmarks) {
@@ -101,7 +111,26 @@ function makeDeletion() {
             bookmarks = bookmarks.filter( bookmark => bookmark[0] !== currentBookmark)
             sayhitoBookmarks()
         })
+}
+}
+function openNewOverlay() {
+    document.getElementById("newOverlay").style.display = "block"
+}
+function openEditOverlay() {
+    document.getElementById("editOverlay").style.display = "block"
+}
+function deleteEntry() {
+    deletedAmiibos = deletedAmiibos.concat(currentAmiibo.tail)
+    removeEverything()
+}
+function checkDeleted(data) {
+    for (let [i,amiibo] of data.amiibo.entries()){
+        if (deletedAmiibos.includes(amiibo.tail)) {
+            data.amiibo.splice(i, 1);
+        }
     }
+    console.log(data)
+    return data
 }
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -109,14 +138,16 @@ document.getElementById('form').addEventListener('submit', (e) => {
     const data = `https://www.amiiboapi.com/api/amiibo/?character=${query}`
     const amiibo = fetch(data)
             .then((res) => res = res.json())
+            .then((data) => data = checkDeleted(data))
+            // .then((data) => data = checkEdited(data))
+            // .then((data) => data = addNew(data))
             .then((data) => {
                 createSearches(data)
                 for(let j = 1; j <= data.amiibo.length; j++) {
                     document.getElementById(`suggest ${j}`).addEventListener("click", (f) => {
                     f.preventDefault()
                     document.getElementById('searched').innerHTML = "";
-                    makedaAmiibo(data.amiibo[j-1])
-                    
+                    makedaAmiibo(data.amiibo[j-1])                    
                 })}
             })
 })
@@ -126,3 +157,10 @@ document.getElementById("bookmark").addEventListener("click", (e) => {
     removeEverything();
     sayhitoBookmarks();
 })
+document.getElementById("newBtn").addEventListener("click", openNewOverlay())
+document.getElementById("editBtn").addEventListener("click", openEditOverlay())
+document.getElementById("delBtn").addEventListener("click", (e) => {
+    deleteEntry()
+    console.log(deletedAmiibos)
+})
+document.getElementById("")
