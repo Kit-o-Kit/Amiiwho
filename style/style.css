@@ -191,6 +191,7 @@ body {
   //div in controller js wenn doch machen
 }*/
 
+/*rush pfusch*/
 
 .hidden{
   display: none;
@@ -199,7 +200,7 @@ body {
 .button{
   background: transparent;
   height: 50px;
-  width: 120px;
+  width: auto;
   border-color: transparent;
   border-style: solid;
   font-size: 20px;
@@ -220,5 +221,15 @@ body {
 }
 
 .label-input-pair{
-  font-size: 30px;
+  position: relative;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.entry{
+  background-color: rgba(167, 202, 177, 0.5);
+  border-color: transparent;
+  width: auto;
+  height: auto;
+  font-size: 20px;
 }
