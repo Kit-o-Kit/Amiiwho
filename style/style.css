@@ -190,3 +190,27 @@ body {
 
   //div in controller js wenn doch machen
 }*/
+
+
+.hidden{
+  display: none;
+}
+
+.button{
+  background: transparent;
+  height: 50px;
+  width: 120px;
+  border-color: transparent;
+  border-style: solid;
+  font-size: 20px;
+}
+
+.button:hover{
+  background: #88b7b5;
+  cursor:pointer;
+}
+
+.move{
+  position: relative;
+  left: 86%;
+}

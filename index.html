@@ -32,58 +32,62 @@
         </ul>
         <div id="books" class="books">
             <div  id="bookmarked"></div>
+
+
+
+
         </div>
-        <button id="newBtn" class="button">New Entry</button>
-        <button id="editBtn" class="button">Edit Entry</button>
-        <button id="delBtn" class="button">Delete Entry</button>
+        <button id="newBtn" class="button move">New Entry</button>
+        <button id="editBtn" class="button hidden">Edit Entry</button>
+        <button id="delBtn" class="button hidden">Delete Entry</button>
         <div id="editOverlay" class="editOverlay">
             <form id="editIt">
                 <div class="label-input-pair">
-                    <label for="amiibo">Amiibo</label>
-                    <input type="text" id="editAmiibo" name="amiibo" required>
+                    <label for="amiibo" class = "hidden">Amiibo</label>
+                    <input type="text" id="editAmiibo" name="amiibo" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="amiiboSeries">Amiibo Series</label>
-                    <input type="text" id="editAmiiboSeries" name="amiiboSeries" required>
+                    <label for="amiiboSeries" class = "hidden" >Amiibo Series</label>
+                    <input type="text" id="editAmiiboSeries" name="amiiboSeries" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="character">Character</label>
-                    <input type="text" id="editCharacter" name="character" required>
+                    <label for="character" class = "hidden">Character</label>
+                    <input type="text" id="editCharacter" name="character" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="gameSeries">Game Series</label>
-                    <input type="text" id="editGameSeries" name="gameSeries" required>
+                    <label for="gameSeries" class = "hidden">Game Series</label>
+                    <input type="text" id="editGameSeries" name="gameSeries" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="release">Release Date EU</label>
-                    <input type="text" id="editRelease" name="release" required>
+                    <label for="release" class = "hidden">Release Date EU</label>
+                    <input type="text" id="editRelease" name="release" class = "hidden" required>
                 </div>
-                <input type="submit" value="Edit Entry">
+                <input type="submit" value="Edit Entry" class = "hidden">
             </form>
         </div>
         <div id="newOverlay" class="editOverlay">
             <form id="newIt">
                 <div class="label-input-pair">
-                    <label for="amiibo">Amiibo</label>
-                    <input type="text" id="newAmiibo" name="amiibo" required>
+                    <label for="amiibo" class = "hidden">Amiibo</label>
+                    <input type="text" id="newAmiibo" name="amiibo" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="amiiboSeries">Amiibo Series</label>
-                    <input type="text" id="newAmiiboSeries" name="amiiboSeries" required>
+                    <label for="amiiboSeries" class = "hidden">Amiibo Series</label>
+                    <input type="text" id="newAmiiboSeries" name="amiiboSeries" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="character">Character</label>
-                    <input type="text" id="newCharacter" name="character" required>
+                    <label for="character" class = "hidden">Character</label>
+                    <input type="text" id="newCharacter" name="character" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="gameSeries">Game Series</label>
-                    <input type="text" id="newGameSeries" name="gameSeries" required>
+                    <label for="gameSeries" class = "hidden">Game Series</label>
+                    <input type="text" id="newGameSeries" name="gameSeries" class = "hidden" required>
                 </div>
                 <div class="label-input-pair">
-                    <label for="release">Release Date EU</label>
-                    <input type="text" id="newRelease" name="release" required>
+                    <label for="release" class = "hidden">Release Date EU</label>
+                    <input type="text" id="newRelease" name="release" class = "hidden" required>
                 </div>
-                <input type="submit" value="Save New Entry">
+                <input type="submit" value="Save New Entry" class = "hidden">
             </form>
         </div>
         <div id="picture"></div>
